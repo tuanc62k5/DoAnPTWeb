@@ -3941,6 +3941,10 @@
       "PackagePath": "staticwebassets\\assets\\vendor\\swiper\\swiper-bundle.min.js.map"
     },
     {
+      "Id": "D:\\DoAnPTWeb\\DoAn\\wwwroot\\tblTaiKhoan.cs",
+      "PackagePath": "staticwebassets\\tblTaiKhoan.cs"
+    },
+    {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.DoAn.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

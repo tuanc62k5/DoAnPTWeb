@@ -1,0 +1,68 @@
+@using DoAn.Models;
+@model IList<tblPhong>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách phòng ở</h2>
+
+        <p>
+            <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Phong" asp-action="Create">
+            <i class="bi bi-file-earmark-text me-1"></i>Thêm mới phòng</a>
+            <section class="section dashboard">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body mt-4">
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1 text-center">#</th>
+                                            <th class="col-2 text-center">Toà</th>
+                                            <th class="col-2 text-center">Tên phòng</th>
+                                            <th class="col-2 text-center">Loại phòng</th>
+                                            <th class="col-1 text-center">SL người</th>
+                                            <th class="col-2 text-center">Trạng thái</th>
+                                            <th class="col-2 text-center">Giá tiền</th>
+                                            <th class="col-3 text-center">Mô tả</th>
+                                            <th class="col-1 text-center">Functions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center" scope="row">@item.P_ID</td>
+                                                <td class="text-center" scope="row">@item.Toa?.T_TenToa</td>
+                                                <td class="text-left text-primary" scope="row"><a asp-area="Admin" 
+                                                    asp-controller="Phong" asp-action="Details" 
+                                                    asp-route-id="@item.P_ID">@item.P_TenPhong</a></td>
+                                                <td class="text-center" scope="row">@item.P_LoaiPhong</td>
+                                                <td class="text-center" scope="row">@item.P_SLNguoi</td>
+                                                <td class="text-center" scope="row">@item.P_TrangThai</td>
+                                                <td class="text-center" scope="row">@item.P_GiaTien</td>
+                                                <td class="text-left" scope="row">@item.P_MoTa</td>
+                                                
+                                                <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="Phong" asp-action="Edit"
+                                                        asp-route-id="@item.P_ID" class="btn btn-primary btn-sm"
+                                                        title="Edit phòng"><i class="bi bi-pencil"></i></a>
+                                                    <a asp-area="Admin" asp-controller="Phong" asp-action="Delete"
+                                                        asp-route-id="@item.P_ID" class="btn btn-danger btn-sm"
+                                                        title="Delete phòng"><i class="bi bi-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </p>
+    </div>
+</main>
