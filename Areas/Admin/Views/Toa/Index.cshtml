@@ -33,12 +33,13 @@
                                         {
                                             <tr>
                                                 <td class="text-center" scope="row">@item.T_ID</td>
+                                                <td class="text-center" scope="row">@item.CoSo?.CS_TenCoSo</td>
                                                 <td class="text-left text-primary" scope="row"><a asp-area="Admin" 
                                                     asp-controller="Toa" asp-action="Details" 
                                                     asp-route-id="@item.T_ID">@item.T_TenToa</a></td>
                                                 <td class="text-center" scope="row">@item.T_SoTang</td>
                                                 <td class="text-center" scope="row">@item.T_SLPhong</td>
-                                                <td class="text-center" scope="row">@item.CoSo?.CS_TenCoSo</td>
+                                                
                                                 <td class="text-center" scope="row">
                                                     <a asp-area="Admin" asp-controller="Toa" asp-action="Edit"
                                                         asp-route-id="@item.T_ID" class="btn btn-primary btn-sm"

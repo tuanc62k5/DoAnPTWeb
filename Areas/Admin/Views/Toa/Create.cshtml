@@ -1,0 +1,51 @@
+@model DoAn.Models.tblToa
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Thêm tòa mới cho cơ sở</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="Post" asp-action="Create">
+            <div class="form-row">
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="CS_ID">Chọn cơ sở</label>
+                    <select class="form-control" asp-for="CS_ID" asp-items="ViewBag.csList">
+                        <option value="">-- Chọn cơ sở cho tòa KTX --</option>
+                    </select>
+                    <span asp-validation-for="CS_ID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="T_TenToa">T_TenToa</label>
+                    <input type="text" class="form-control" asp-for="T_TenToa" placeholder="Nhập tên tòa KTX..." />
+                    <span asp-validation-for="T_TenToa" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="T_SoTang">T_SoTang</label>
+                    <input type="text" class="form-control" asp-for="T_SoTang" placeholder="Nhập số tầng của tòa..." />
+                    <span asp-validation-for="T_SoTang" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="T_SLPhong">T_SLPhong</label>
+                    <input type="text" class="form-control" asp-for="T_SLPhong" placeholder="Nhập số lượng phòng của tòa..." />
+                    <span asp-validation-for="T_SLPhong" class="text-danger"></span>
+                </div>
+            </div>
+
+            <a asp-controller="Toa" asp-action="Index" class="btn btn-lg btn-warning p-2">
+                <i class="bi bi-arrow-left-circle"></i>
+                Thoát
+            </a>
+
+            <button type="submit" class="btn btn-lg btn-primary p-2">
+                <i class="bi bi-file-plus-fill"></i> Lưu
+            </button>
+            
+        </form>
+    </div>
+</main>
