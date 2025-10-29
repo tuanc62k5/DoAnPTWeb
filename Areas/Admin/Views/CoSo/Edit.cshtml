@@ -1,0 +1,41 @@
+@model DoAn.Models.tblCoSo
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Sửa cơ sở</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="post" asp-action="Edit">
+            <div class="form-row">
+                <input type="text" class="form-control" asp-for="CS_ID" type="hidden" />
+                <div class="form-group col-md-6 mb-3">
+                    <label>CS_TenCoSo</label>
+                    <input type=""text" class="form-control" asp-for="CS_TenCoSo" placeholder="Nhập tên cơ sở..." />
+                    <span asp-validation-for="CS_TenCoSo" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>CS_DiaChi</label>
+                    <input type="text" class="form-control" asp-for="CS_DiaChi" placeholder="Nhập địa chỉ..." />
+                    <span asp-validation-for="CS_DiaChi" class="alert-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <label>CS_SoToaKTX</label>
+                    <input type="text" class="form-control" asp-for="CS_SoToaKTX" placeholder="Nhập số lượng tòa ktx của cơ sở..." />
+                    <span asp-validation-for="CS_SoToaKTX" class="alert-danger"></span>
+                </div>
+            </div>
+
+            <a asp-controller="CoSo" asp-action="Index" class="btn btn-lg btn-warning p-2">
+            <i class="bi bi-arrow-left-cricle"></i> Thoát
+            </a>
+
+            <button type="submit" class="btn b tn-lg btn-primary p-2">
+            <i class="bi bi-file-plus-fill"></i> Lưu
+            </button>
+            
+        </form>
+    </div>
+</main>

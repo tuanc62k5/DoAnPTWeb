@@ -1,0 +1,49 @@
+@model DoAn.Models.tblTaiKhoan
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Thêm tài khoản mới</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="Post" asp-action="Create">
+            <div class="form-row">
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Chọn Sinh Viên</label>
+                    <select class="form-control" asp-for="SV_ID" asp-items="ViewBag.svList">
+                        <option value="">-- Chọn sinh viên cho tài khoản --</option>
+                    </select>
+                    <span asp-validation-for="SV_ID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label >TK_TenDangNhap</label>
+                    <input type="text" class="form-control" asp-for="TK_TenDangNhap" placeholder="Nhập tên đăng nhập..." />
+                    <span asp-validation-for="TK_TenDangNhap" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>TK_MatKhau</label>
+                    <input type="text" class="form-control" asp-for="TK_MatKhau" placeholder="Nhập mật khẩu..." />
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>TK_Email</label>
+                    <input type="text" class="form-control" asp-for="TK_Email" placeholder="Nhập Email..." />
+                </div>
+            </div>
+
+            <a asp-controller="Account" asp-action="Index" class="btn btn-lg btn-warning p-2">
+                <i class="bi bi-arrow-left-circle"></i>
+                Thoát
+            </a>
+
+            <button type="submit" class="btn btn-lg btn-primary p-2">
+                <i class="bi bi-file-plus-fill"></i> Lưu
+            </button>
+            
+        </form>
+    </div>
+</main>

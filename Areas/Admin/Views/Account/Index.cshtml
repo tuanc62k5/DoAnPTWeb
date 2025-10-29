@@ -1,0 +1,61 @@
+@using DoAn.Models;
+@model IList<tblTaiKhoan>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách tài khoản</h2>
+
+        <p>
+            <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Account" asp-action="Create">
+            <i class="bi bi-file-earmark-text me-1"></i>Thêm mới tài khoản</a>
+            <section class="section dashboard">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body mt-4">
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1 text-center">#</th>
+                                            <th class="col-2 text-center">TK_TenDangNhap</th>
+                                            <th class="col-2 text-center">TK_MatKhau</th>
+                                            <th class="col-3 text-center">TK_Email</th>
+                                            <th class="col-3 text-center">SinhVien</th>
+                                            <th class="col-1 text-center">Functions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center" scope="row">@item.TK_ID</td>
+                                                <td class="text-left text-primary" scope="row"><a asp-area="Admin" 
+                                                    asp-controller="Account" asp-action="Details" 
+                                                    asp-route-id="@item.TK_ID">@item.TK_TenDangNhap</a></td>
+                                                <td class="text-center" scope="row">@item.TK_MatKhau</td>
+                                                <td class="text-center" scope="row">@item.TK_Email</td>
+                                                <td class="text-center" scope="row">@item.SinhVien?.SV_HoTen</td>
+                                                <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="Account" asp-action="Edit"
+                                                        asp-route-id="@item.TK_ID" class="btn btn-primary btn-sm"
+                                                        title="Edit the account"><i class="bi bi-pencil"></i></a>
+                                                    <a asp-area="Admin" asp-controller="Account" asp-action="Delete"
+                                                        asp-route-id="@item.TK_ID" class="btn btn-danger btn-sm"
+                                                        title="Delete the account"><i class="bi bi-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </p>
+    </div>
+</main>

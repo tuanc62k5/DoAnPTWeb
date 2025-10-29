@@ -1,0 +1,61 @@
+@using DoAn.Models;
+@model IList<tblToa>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách toà KTX</h2>
+
+        <p>
+            <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Toa" asp-action="Create">
+            <i class="bi bi-file-earmark-text me-1"></i>Thêm mới Tòa</a>
+            <section class="section dashboard">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body mt-4">
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1 text-center">#</th>
+                                            <th class="col-2 text-center">CoSo</th>
+                                            <th class="col-2 text-center">T_TenToa</th>
+                                            <th class="col-2 text-center">T_SoTang</th>
+                                            <th class="col-3 text-center">T_SLPhong</th>
+                                            <th class="col-1 text-center">Functions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center" scope="row">@item.T_ID</td>
+                                                <td class="text-left text-primary" scope="row"><a asp-area="Admin" 
+                                                    asp-controller="Toa" asp-action="Details" 
+                                                    asp-route-id="@item.T_ID">@item.T_TenToa</a></td>
+                                                <td class="text-center" scope="row">@item.T_SoTang</td>
+                                                <td class="text-center" scope="row">@item.T_SLPhong</td>
+                                                <td class="text-center" scope="row">@item.CoSo?.CS_TenCoSo</td>
+                                                <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="Toa" asp-action="Edit"
+                                                        asp-route-id="@item.T_ID" class="btn btn-primary btn-sm"
+                                                        title="Edit toa KTX"><i class="bi bi-pencil"></i></a>
+                                                    <a asp-area="Admin" asp-controller="Toa" asp-action="Delete"
+                                                        asp-route-id="@item.T_ID" class="btn btn-danger btn-sm"
+                                                        title="Delete Toa KTX"><i class="bi bi-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </p>
+    </div>
+</main>
