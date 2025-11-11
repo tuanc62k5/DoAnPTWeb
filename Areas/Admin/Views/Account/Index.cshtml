@@ -24,8 +24,7 @@
                                             <th class="col-2 text-center">TK_TenDangNhap</th>
                                             <th class="col-2 text-center">TK_MatKhau</th>
                                             <th class="col-3 text-center">TK_Email</th>
-                                            <th class="col-3 text-center">SinhVien</th>
-                                            <th class="col-1 text-center">Functions</th>
+                                            <th class="col-2 text-center">Chức năng</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -38,7 +37,6 @@
                                                     asp-route-id="@item.TK_ID">@item.TK_TenDangNhap</a></td>
                                                 <td class="text-center" scope="row">@item.TK_MatKhau</td>
                                                 <td class="text-center" scope="row">@item.TK_Email</td>
-                                                <td class="text-center" scope="row">@item.SinhVien?.SV_HoTen</td>
                                                 <td class="text-center" scope="row">
                                                     <a asp-area="Admin" asp-controller="Account" asp-action="Edit"
                                                         asp-route-id="@item.TK_ID" class="btn btn-primary btn-sm"

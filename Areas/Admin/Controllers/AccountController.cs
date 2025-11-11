@@ -19,7 +19,7 @@ namespace DoAn.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            var tkList = _context.TaiKhoans.Include(t => t.SinhVien).OrderBy(tk => tk.TK_ID).ToList();
+            var tkList = _context.TaiKhoans.OrderBy(tk => tk.TK_ID).ToList();
             return View(tkList);
         }
         public IActionResult Delete(int? id)
@@ -43,7 +43,6 @@ namespace DoAn.Areas.Admin.Controllers
         }
         public IActionResult Create()
         {
-            ViewBag.svList = new SelectList(_context.SinhViens, "SV_ID", "SV_HoTen");
             return View();
 
         }
@@ -57,7 +56,6 @@ namespace DoAn.Areas.Admin.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.svList = new SelectList(_context.SinhViens, "SV_ID", "SV_HoTen", tk.SV_ID);
             return View(tk);
         }
 
@@ -69,19 +67,6 @@ namespace DoAn.Areas.Admin.Controllers
             var tk = _context.TaiKhoans.Find(id);
             if (tk == null)
                 return NotFound();
-
-            var svList = _context.SinhViens.Select(s => new SelectListItem
-            {
-                Text = s.SV_HoTen,
-                Value = s.SV_ID.ToString()
-            }).ToList();
-
-            svList.Insert(0, new SelectListItem
-            {
-                Text = "-- Chọn sinh viên --",
-                Value = ""
-            });
-            ViewBag.svList = svList;
 
             return View(tk);
         }
@@ -95,20 +80,6 @@ namespace DoAn.Areas.Admin.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            var svList = _context.SinhViens.Select(s => new SelectListItem
-            {
-                Text = s.SV_HoTen,
-                Value = s.SV_ID.ToString()
-            }).ToList();
-
-            svList.Insert(0, new SelectListItem
-            {
-                Text = "-- Chọn sinh viên --",
-                Value = ""
-            });
-
-            ViewBag.svList = svList;
 
             return View(tk);
         }

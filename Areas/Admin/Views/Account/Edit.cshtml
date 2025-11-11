@@ -10,13 +10,6 @@
         <form method="post" asp-action="Edit">
             <div class="form-row">
                 <input type="text" class="form-control" asp-for="TK_ID" type="hidden" />
-                <div class="form-group col-md-6 mb-3">
-                    <label>Chọn sinh viên</label>
-                    <select class="form-control" asp-for="SV_ID" asp-items="ViewBag.svList">
-                        <option value="">-- Chọn sinh viên cho tài khoản --</option>
-                    </select>
-                    <span asp-validation-for="SV_ID" class="text-danger"></span>
-                </div>
 
                 <div class="form-group col-md-6 mb-3">
                     <label>TK_TenDangNhap</label>

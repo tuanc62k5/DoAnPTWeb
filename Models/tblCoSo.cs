@@ -8,8 +8,13 @@ namespace DoAn.Models
     {
         [Key]
         public int CS_ID { get; set; }
+
         public string? CS_TenCoSo { get; set; }
+
         public string? CS_DiaChi { get; set; }
-        public int CS_SoToaKTX { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng không để trống số tòa.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Số tòa phải lớn hơn 0.")]
+        public int? CS_SoToaKTX { get; set; }
     }
 }
