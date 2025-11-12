@@ -1,0 +1,78 @@
+@model DoAn.Models.tblSinhVien
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Thêm sinh viên mới</h2>
+    </div>
+
+    <div class="container shadow p-5">
+        <form asp-action="Create" method="post">
+            <div class="form-row">
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_MaSV"></label>
+                    <input asp-for="SV_MaSV" class="form-control" placeholder="Nhập mã sinh viên..." />
+                    <span asp-validation-for="SV_MaSV" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_HoTen"></label>
+                    <input asp-for="SV_HoTen" class="form-control" placeholder="Nhập họ tên..." />
+                    <span asp-validation-for="SV_HoTen" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_GioiTinh"></label>
+                    <select asp-for="SV_GioiTinh" class="form-select">
+                        <option value="">-- Chọn giới tính --</option>
+                        <option>Nam</option>
+                        <option>Nữ</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_NgaySinh"></label>
+                    <input asp-for="SV_NgaySinh" type="date" class="form-control" />
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_DiaChi"></label>
+                    <input asp-for="SV_DiaChi" class="form-control" placeholder="Nhập địa chỉ..." />
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_Email"></label>
+                    <input asp-for="SV_Email" class="form-control" placeholder="Nhập email..." />
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_Sdt"></label>
+                    <input asp-for="SV_Sdt" class="form-control" placeholder="Nhập số điện thoại..." />
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="TenPhong">Tên phòng</label>
+                    <input asp-for="TenPhong" class="form-control" placeholder="Nhập tên phòng..." />
+                    <span asp-validation-for="TenPhong" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="TenDangNhap">Tên tài khoản</label>
+                    <input asp-for="TenDangNhap" class="form-control" placeholder="Nhập tên tài khoản..." />
+                    <span asp-validation-for="TenDangNhap" class="text-danger"></span>
+                </div>
+            </div>
+
+            <a asp-action="Index" class="btn btn-lg btn-warning p-2">
+                <i class="bi bi-arrow-left-circle"></i> Thoát
+            </a>
+
+            <button type="submit" class="btn btn-lg btn-primary p-2">
+                <i class="bi bi-file-plus-fill"></i> Lưu
+            </button>
+        </form>
+    </div>
+</main>

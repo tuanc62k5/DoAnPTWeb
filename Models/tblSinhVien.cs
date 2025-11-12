@@ -8,8 +8,34 @@ namespace DoAn.Models
     {
         [Key]
         public int SV_ID { get; set; }
-        public string? SV_MaSV { get; set; }
-        public string? SV_HoTen { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng nhập mã sinh viên.")]
+        public string SV_MaSV { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng nhập họ tên sinh viên.")]
+        public string SV_HoTen { get; set; }
         public string? SV_GioiTinh { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? SV_NgaySinh { get; set; }
+        public string? SV_DiaChi { get; set; }
+        public string? SV_Email { get; set; }
+        public string? SV_Sdt { get; set; }
+        public int? P_ID { get; set; }
+
+        [ForeignKey("P_ID")]
+        public virtual tblPhong? Phong { get; set; }
+        public int? TK_ID { get; set; }
+
+        [ForeignKey("TK_ID")]
+        public virtual tblTaiKhoan? TaiKhoan { get; set; }
+
+        [NotMapped]
+        [Display(Name ="Tên phòng")]
+        public string? TenPhong { get; set; }
+
+        [NotMapped]
+        [Display(Name ="Tên tài khoản")]
+        public string? TenDangNhap { get; set; }
     }
 }

@@ -1,0 +1,65 @@
+@using DoAn.Models;
+@model IList<tblDichVu>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách dịch vụ</h2>
+
+        <p>
+            <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="DichVu" asp-action="Create">
+            <i class="bi bi-file-earmark-text me-1"></i>Thêm mới dịch vụ</a>
+            <section class="section dashboard">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body mt-4">
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1 text-center">#</th>
+                                            <th class="col-2 text-center">Tên dịch vụ</th>
+                                            <th class="col-4 text-center">Mô tả</th>
+                                            <th class="col-2 text-center">Đơn giá</th>
+                                            <th class="col-2 text-center">Đơn vị tính</th>
+                                            <th class="col-2 text-center">Trạng thái</th>
+                                            <th class="col-2 text-center">Chức năng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center" scope="row">@item.DV_ID</td>
+                                                <td class="text-center text-primary" scope="row"><a asp-area="Admin"
+                                                    asp-controller="DichVu" asp-action="Details"
+                                                    asp-route-id="@item.DV_ID">@item.DV_TenDichVu</a></td>
+                                                <td class="text-left" scope="row">@item.DV_MoTa</td>
+                                                <td class="text-center" scope="row">@item.DV_DonGia</td>
+                                                <td class="text-center" scope="row">@item.DV_DonViTinh</td>
+                                                <td class="text-center" scope="row">@(item.DV_TrangThai == true ? "Hoạt động" : "Không hoạt động")</td>
+                                                <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="DichVu" asp-action="Edit"
+                                                        asp-route-id="@item.DV_ID" class="btn btn-primary btn-sm"
+                                                        title="Sửa dịch vụ"><i class="bi bi-pencil"></i></a>
+
+                                                    <a asp-area="Admin" asp-controller="DichVu" asp-action="Delete"
+                                                        asp-route-id="@item.DV_ID" class="btn btn-danger btn-sm"
+                                                        title="Xóa dịch vụ"><i class="bi bi-trash"></i></a>
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </p>
+    </div>
+</main>

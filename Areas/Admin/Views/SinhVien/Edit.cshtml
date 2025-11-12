@@ -1,0 +1,93 @@
+@model DoAn.Models.tblSinhVien
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Sửa sinh viên</h2>
+    </div>
+
+    <div class="container shadow p-5">
+        <form asp-action="Edit" method="post">
+            <input asp-for="SV_ID" type="hidden" />
+
+            <div class="form-row">
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_MaSV">Mã sinh viên</label>
+                    <input asp-for="SV_MaSV" class="form-control" />
+                    <span asp-validation-for="SV_MaSV" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_HoTen">Họ tên</label>
+                    <input asp-for="SV_HoTen" class="form-control" />
+                    <span asp-validation-for="SV_HoTen" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_GioiTinh">Giới tính</label>
+                    <select asp-for="SV_GioiTinh" class="form-select">
+                        <option value="">-- Chọn giới tính --</option>
+                        <option>Nam</option>
+                        <option>Nữ</option>
+                    </select>
+                    <span asp-validation-for="SV_GioiTinh" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_NgaySinh">Ngày sinh</label>
+                    <input asp-for="SV_NgaySinh" type="date" class="form-control" />
+                    <span asp-validation-for="SV_NgaySinh" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_DiaChi">Địa chỉ</label>
+                    <input asp-for="SV_DiaChi" class="form-control" />
+                    <span asp-validation-for="SV_DiaChi" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_Email">Email</label>
+                    <input asp-for="SV_Email" type="email" class="form-control" />
+                    <span asp-validation-for="SV_Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="SV_Sdt">Số điện thoại</label>
+                    <input asp-for="SV_Sdt" class="form-control" />
+                    <span asp-validation-for="SV_Sdt" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="TenPhong">Tên phòng</label>
+                    <input asp-for="TenPhong" class="form-control" placeholder="Nhập tên phòng..." />
+                    <span asp-validation-for="TenPhong" class="text-danger"></span>
+                    @if (Model.Phong != null)
+                    {
+                        <small class="text-muted">Phòng hiện tại: @Model.Phong.P_TenPhong</small>
+                    }
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="TenDangNhap">Tên tài khoản</label>
+                    <input asp-for="TenDangNhap" class="form-control" placeholder="Nhập tên tài khoản..." />
+                    <span asp-validation-for="TenDangNhap" class="text-danger"></span>
+                    @if (Model.TaiKhoan != null)
+                    {
+                        <small class="text-muted">Tài khoản hiện tại: @Model.TaiKhoan.TK_TenDangNhap</small>
+                    }
+                </div>
+            </div>
+
+            <a asp-action="Index" class="btn btn-lg btn-warning p-2">
+                <i class="bi bi-arrow-left-circle"></i> Thoát
+            </a>
+
+            <button type="submit" class="btn btn-lg btn-primary p-2">
+                <i class="bi bi-save"></i> Lưu
+            </button>
+        </form>
+    </div>
+</main>

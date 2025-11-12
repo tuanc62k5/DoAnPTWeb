@@ -1,0 +1,63 @@
+@model DoAn.Models.tblSinhVien
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Xác nhận để xóa sinh viên</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="SV_ID">SV_ID</label>
+            <input type="text" class="form-control" asp-for="SV_ID" disabled />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="SV_MaSV">Mã sinh viên</label>
+            <input type="text" class="form-control" asp-for="SV_MaSV" disabled />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label asp-for="SV_HoTen">Họ tên</label>
+            <input type="text" class="form-control" asp-for="SV_HoTen" disabled />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="SV_GioiTinh">Giới tính</label>
+            <input type="text" class="form-control" asp-for="SV_GioiTinh" disabled />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label asp-for="SV_NgaySinh">Ngày sinh</label>
+            <input type="text" class="form-control" 
+                   value="@Model.SV_NgaySinh?.ToString("dd/MM/yyyy")" disabled />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="SV_DiaChi">Địa chỉ</label>
+            <input type="text" class="form-control" asp-for="SV_DiaChi" disabled />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label asp-for="SV_Email">Email</label>
+            <input type="text" class="form-control" asp-for="SV_Email" disabled />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="SV_Sdt">Số điện thoại</label>
+            <input type="text" class="form-control" asp-for="SV_Sdt" disabled />
+        </div>
+
+    </div>
+
+    <!-- Begin Form -->
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="SV_ID" />
+        <a class="btn btn-lg btn-warning p-2 me-3" href="javascript:history.back()">
+            <i class="bi bi-arrow-left-circle"></i> Thoát
+        </a>
+        <button type="submit" class="btn btn-lg btn-danger p-2">
+            <i class="bi bi-trash"></i> Xóa
+        </button>
+    </form>
+    <!-- End Form -->
+</main>

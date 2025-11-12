@@ -14,7 +14,10 @@ namespace DoAn.Models
         public DbSet<tblCoSo> CoSos { get; set; }
         
         public DbSet<tblPhong> Phongs { get; set; }
-        public DbSet<tblSinhVien> SinhViens { get; set; }
         public DbSet<tblToa> Toas { get; set; }
+        public DbSet<tblSinhVien> SinhViens { get; set; }
+        public DbSet<tblDichVu> DichVus { get; set; }
+        public DbSet<tblDichVuPhong> DichVuPhongs { get; set; }
+        
     }
 }

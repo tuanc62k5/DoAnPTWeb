@@ -1,0 +1,74 @@
+@using DoAn.Models;
+@model IList<tblSinhVien>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách sinh viên</h2>
+
+        <p>
+            <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="SinhVien" asp-action="Create">
+            <i class="bi bi-file-earmark-text me-1"></i>Thêm mới sinh viên</a>
+            <section class="section dashboard">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body mt-4">
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1 text-center">#</th>
+                                            <th class="col-2 text-center">Mã sinh viên</th>
+                                            <th class="col-2 text-center">Họ tên</th>
+                                            <th class="col-2 text-center">Giới tính</th>
+                                            <th class="col-2 text-center">Ngày sinh</th>
+                                            <th class="col-2 text-center">Địa chỉ</th>
+                                            <th class="col-2 text-center">Email</th>
+                                            <th class="col-2 text-center">Số điện thoại</th>
+                                            <th class="col-2 text-center">Phòng</th>
+                                            <th class="col-2 text-center">Tài khoản</th>
+                                            <th class="col-2 text-center">Chức năng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center" scope="row">@item.SV_ID</td>
+                                                <td class="text-left" scope="row">@item.SV_MaSV</td>
+                                                
+                                                <td class="text-center text-primary" scope="row"><a asp-area="Admin" 
+                                                    asp-controller="SinhVien" asp-action="Details" 
+                                                    asp-route-id="@item.SV_ID">@item.SV_HoTen</a></td>
+                                                <td class="text-center" scope="row">@item.SV_GioiTinh</td>
+                                                <td class="text-center" scope="row">@item.SV_NgaySinh?.ToString("dd/MM/yyyy")</td>
+                                                <td class="text-left" scope="row">@item.SV_DiaChi</td>
+                                                <td class="text-left" scope="row">@item.SV_Email</td>
+                                                <td class="text-center" scope="row">@item.SV_Sdt</td>
+                                                <td class="text-center" scope="row">@item.Phong?.P_TenPhong</td>
+                                                <td class="text-center" scope="row">@item.TaiKhoan?.TK_TenDangNhap</td>
+
+                                                
+                                                <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="SinhVien" asp-action="Edit"
+                                                        asp-route-id="@item.SV_ID" class="btn btn-primary btn-sm"
+                                                        title="Sửa sinh viên"><i class="bi bi-pencil"></i></a>
+                                                    <a asp-area="Admin" asp-controller="SinhVien" asp-action="Delete"
+                                                        asp-route-id="@item.SV_ID" class="btn btn-danger btn-sm"
+                                                        title="Xóa sinh viên"><i class="bi bi-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </p>
+    </div>
+</main>
