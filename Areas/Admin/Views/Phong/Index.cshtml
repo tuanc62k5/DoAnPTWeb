@@ -26,7 +26,7 @@
                                             <th class="col-2 text-center">Loại phòng</th>
                                             <th class="col-1 text-center">SL người</th>
                                             <th class="col-2 text-center">Trạng thái</th>
-                                            <th class="col-2 text-center">Giá tiền</th>
+                                            <th class="col-1 text-center">Giá tiền</th>
                                             <th class="col-3 text-center">Mô tả</th>
                                             <th class="col-2 text-center">Chức năng</th>
                                         </tr>
@@ -37,7 +37,7 @@
                                             <tr>
                                                 <td class="text-center" scope="row">@item.P_ID</td>
                                                 <td class="text-center" scope="row">@item.Toa?.T_TenToa</td>
-                                                <td class="text-left text-primary" scope="row"><a asp-area="Admin" 
+                                                <td class="text-center text-primary" scope="row"><a asp-area="Admin" 
                                                     asp-controller="Phong" asp-action="Details" 
                                                     asp-route-id="@item.P_ID">@item.P_TenPhong</a></td>
                                                 <td class="text-center" scope="row">@item.P_LoaiPhong</td>

@@ -8,6 +8,8 @@ namespace DoAn.Models
     {
         [Key]
         public int P_ID { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng nhập tên phòng!")]
         public string? P_TenPhong { get; set; }
         public string? P_LoaiPhong { get; set; }
         public int? P_SLNguoi { get; set; }
@@ -15,7 +17,7 @@ namespace DoAn.Models
         public double? P_GiaTien { get; set; }
         public string? P_MoTa { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng chọn tòa KTX.")]
+        [Required(ErrorMessage = "Vui lòng chọn tòa KTX!")]
         public int? T_ID { get; set; }
 
         [ForeignKey("T_ID")]

@@ -11,7 +11,7 @@
             <div class="form-row">
 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="T_ID">Chọn tòa KTX</label>
+                    <label>Chọn tòa KTX</label>
                     <select class="form-control" asp-for="T_ID" asp-items="ViewBag.toaList">
                         <option value="">-- Chọn tòa cho phòng --</option>
                     </select>
@@ -19,29 +19,30 @@
                 </div>
 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="P_TenPhong">Tên phòng</label>
+                    <label>Tên phòng</label>
                     <input type="text" class="form-control" asp-for="P_TenPhong" placeholder="Nhập tên phòng..." />
                     <span asp-validation-for="P_TenPhong" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="P_LoaiPhong">Loại phòng</label>
+                    <label>Loại phòng</label>
                     <select asp-for="P_LoaiPhong" class="form-select" id="P_LoaiPhong">
                         <option value="Phòng 2 người">Phòng 2 người</option>
                         <option value="Phòng 4 người">Phòng 4 người</option>
                         <option value="Phòng 6 người">Phòng 6 người</option>
+                        <option value="Phòng 6 người">Phòng 8 người</option>
                         <option value="Phòng VIP">Phòng VIP</option>
                         <option value="Phòng nữ riêng">Phòng nữ riêng</option>
                     </select>
                 </div>
 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="P_SLNguoi">Số lượng người</label>
+                    <label>Số lượng người</label>
                     <input type="text" class="form-control" asp-for="P_SLNguoi" placeholder="Nhập số lượng người của phòng..." />
-                    <span asp-validation-for="P_SLNguoi" class="text-danger"></span>
                 </div>
+
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="P_TrangThai">Trạng thái</label>
+                    <label>Trạng thái</label>
                     <select asp-for="P_TrangThai" class="form-select" id="P_TrangThai">
                         <option value="Còn trống">Còn trống</option>
                         <option value="Đã đầy">Đã đầy</option>
@@ -52,15 +53,15 @@
                         <option value="Đặt trước">Đặt trước</option>
                     </select>
                 </div>
+
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="P_GiaTien">Giá tiền</label>
+                    <label>Giá tiền</label>
                     <input type="text" class="form-control" asp-for="P_GiaTien" placeholder="Nhập giá tiền của phòng trên 1 tháng..." />
-                    <span asp-validation-for="P_GiaTien" class="text-danger"></span>
                 </div>
+
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="P_MoTa">Mô tả</label>
+                    <label>Mô tả</label>
                     <input type="text" class="form-control" asp-for="P_MoTa" placeholder="Nhập mô tả phòng..." />
-                    <span asp-validation-for="P_MoTa" class="text-danger"></span>
                 </div>
             </div>
 
