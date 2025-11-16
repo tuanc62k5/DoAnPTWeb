@@ -10,10 +10,10 @@ namespace DoAn.Models
         public int SV_ID { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập mã sinh viên.")]
-        public string SV_MaSV { get; set; }
+        public string? SV_MaSV { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập họ tên sinh viên.")]
-        public string SV_HoTen { get; set; }
+        public string? SV_HoTen { get; set; }
         public string? SV_GioiTinh { get; set; }
 
         [Column(TypeName = "date")]

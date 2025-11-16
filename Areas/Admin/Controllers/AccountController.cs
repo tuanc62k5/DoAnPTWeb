@@ -47,7 +47,6 @@ namespace DoAn.Areas.Admin.Controllers
 
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Create(tblTaiKhoan tk)
         {
             if (ModelState.IsValid)
