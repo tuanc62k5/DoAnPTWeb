@@ -11,7 +11,7 @@
             <div class="form-row">
 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="CS_ID">Chọn cơ sở</label>
+                    <label>Chọn cơ sở</label>
                     <select class="form-control" asp-for="CS_ID" asp-items="ViewBag.csList">
                         <option value="">-- Chọn cơ sở cho tòa KTX --</option>
                     </select>
@@ -19,28 +19,19 @@
                 </div>
 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="T_TenToa">Tên tòa</label>
+                    <label>Tên tòa</label>
                     <input type="text" class="form-control" asp-for="T_TenToa" placeholder="Nhập tên tòa KTX..." />
                     <span asp-validation-for="T_TenToa" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="T_SoTang">Số tầng</label>
-                    <select asp-for="T_SoTang" class="form-select" id="T_SoTang">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select>
+                    <label>Số tầng</label>
+                    <input type="text" class="form-control" asp-for="T_SoTang" placeholder="Nhập số tầng..." />
+                    <span asp-validation-for="T_SoTang" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="T_SLPhong">Số lượng phòng</label>
+                    <label>Số lượng phòng</label>
                     <input type="text" class="form-control" asp-for="T_SLPhong" placeholder="Nhập số lượng phòng của tòa..." />
                     <span asp-validation-for="T_SLPhong" class="text-danger"></span>
                 </div>

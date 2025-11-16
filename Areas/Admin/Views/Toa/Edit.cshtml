@@ -11,7 +11,7 @@
             <div class="form-row">
                 <input type="text" class="form-control" asp-for="T_ID" type="hidden" />
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="CS_ID">Chọn cơ sở</label>
+                    <label>Chọn cơ sở</label>
                     <select class="form-control" asp-for="CS_ID" asp-items="ViewBag.csList">
                         <option value="">-- Chọn cơ sở cho tòa --</option>
                     </select>
@@ -19,19 +19,19 @@
                 </div>
 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="T_TenToa">Tên tòa KTX</label>
+                    <label>Tên tòa KTX</label>
                     <input type=""text" class="form-control" asp-for="T_TenToa" placeholder="Nhập tên tòa KTX..." />
                     <span asp-validation-for="T_TenToa" class="alert-danger"></span>
                 </div>
 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="T_SoTang">Số tầng</label>
+                    <label>Số tầng</label>
                     <input type="text" class="form-control" asp-for="T_SoTang" placeholder="Nhập số tầng" />
                     <span asp-validation-for="T_SoTang" class="alert-danger"></span>
                 </div>
                 
                 <div class="form-group col-md-6 mb-3">
-                    <label asp-for="T_SLPhong">Số lượng phòng</label>
+                    <label>Số lượng phòng</label>
                     <input type="text" class="form-control" asp-for="T_SLPhong" placeholder="Nhập số lượng phòng" />
                     <span asp-validation-for="T_SLPhong" class="alert-danger"></span>
                 </div>
