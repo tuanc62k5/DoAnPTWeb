@@ -30,10 +30,12 @@ namespace DoAn.Models
         [ForeignKey("TK_ID")]
         public virtual tblTaiKhoan? TaiKhoan { get; set; }
 
+        [Required(ErrorMessage = "Vui lòng nhập tên phòng có trong danh sách!")]
         [NotMapped]
         [Display(Name ="Tên phòng")]
         public string? TenPhong { get; set; }
 
+        [Required(ErrorMessage = "Vui lòng nhập tên tài khoản có trong danh sách!")]
         [NotMapped]
         [Display(Name ="Tên tài khoản")]
         public string? TenDangNhap { get; set; }

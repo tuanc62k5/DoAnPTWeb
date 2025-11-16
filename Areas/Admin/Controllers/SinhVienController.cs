@@ -26,9 +26,13 @@ namespace DoAn.Areas.Admin.Controllers
         {
             if (id == null || id == 0)
                 return NotFound();
-            var sv = _context.SinhViens.Find(id);
+            var sv = _context.SinhViens.Include(s => s.Phong).Include(s => s.Phong).FirstOrDefault(s => s.SV_ID == id);
+
             if (sv == null)
                 return NotFound();
+            
+            sv.TenPhong = sv.Phong?.P_TenPhong;
+            sv.TenDangNhap = sv.TaiKhoan?.TK_TenDangNhap;
             return View(sv);
         }
         [HttpPost]
@@ -91,7 +95,7 @@ namespace DoAn.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var sv = _context.SinhViens.Find(id);
+            var sv = _context.SinhViens.Include(s => s.Phong).Include(s => s.TaiKhoan).FirstOrDefault(s => s.SV_ID == id);
             if (sv == null)
             {
                 return NotFound();
@@ -144,6 +148,21 @@ namespace DoAn.Areas.Admin.Controllers
             sv.TaiKhoan = _context.TaiKhoans.FirstOrDefault(t => t.TK_ID == sv.TK_ID);
             sv.TenPhong = sv.TenPhong ?? sv.Phong?.P_TenPhong;
             sv.TenDangNhap = sv.TenDangNhap ?? sv.TaiKhoan?.TK_TenDangNhap;
+
+            return View(sv);
+        }
+        public IActionResult Details(int? id)
+        {
+            if (id == null || id == 0)
+                return NotFound();
+
+            var sv = _context.SinhViens.Include(s => s.Phong).Include(s => s.TaiKhoan).FirstOrDefault(s => s.SV_ID == id);
+
+            if (sv == null)
+                return NotFound();
+                
+            sv.TenPhong = sv.Phong?.P_TenPhong;
+            sv.TenDangNhap = sv.TaiKhoan?.TK_TenDangNhap;
 
             return View(sv);
         }

@@ -23,14 +23,10 @@
                                             <th class="col-1 text-center">#</th>
                                             <th class="col-2 text-center">Mã sinh viên</th>
                                             <th class="col-2 text-center">Họ tên</th>
-                                            <th class="col-2 text-center">Giới tính</th>
                                             <th class="col-2 text-center">Ngày sinh</th>
-                                            <th class="col-2 text-center">Địa chỉ</th>
-                                            <th class="col-2 text-center">Email</th>
-                                            <th class="col-2 text-center">Số điện thoại</th>
+                                            <th class="col-1 text-center">Địa chỉ</th>
                                             <th class="col-2 text-center">Phòng</th>
-                                            <th class="col-2 text-center">Tài khoản</th>
-                                            <th class="col-2 text-center">Chức năng</th>
+                                            <th class="col-3 text-center">Chức năng</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -43,16 +39,14 @@
                                                 <td class="text-center text-primary" scope="row"><a asp-area="Admin" 
                                                     asp-controller="SinhVien" asp-action="Details" 
                                                     asp-route-id="@item.SV_ID">@item.SV_HoTen</a></td>
-                                                <td class="text-center" scope="row">@item.SV_GioiTinh</td>
                                                 <td class="text-center" scope="row">@item.SV_NgaySinh?.ToString("dd/MM/yyyy")</td>
                                                 <td class="text-left" scope="row">@item.SV_DiaChi</td>
-                                                <td class="text-left" scope="row">@item.SV_Email</td>
-                                                <td class="text-center" scope="row">@item.SV_Sdt</td>
                                                 <td class="text-center" scope="row">@item.Phong?.P_TenPhong</td>
-                                                <td class="text-center" scope="row">@item.TaiKhoan?.TK_TenDangNhap</td>
-
                                                 
                                                 <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="SinhVien" asp-action="Details"
+                                                        asp-route-id="@item.SV_ID" class="btn btn-primary btn-sm"
+                                                        title="Xem chi tiết sinh viên"><i class="ri-eye-line"></i></a>
                                                     <a asp-area="Admin" asp-controller="SinhVien" asp-action="Edit"
                                                         asp-route-id="@item.SV_ID" class="btn btn-primary btn-sm"
                                                         title="Sửa sinh viên"><i class="bi bi-pencil"></i></a>
