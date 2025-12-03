@@ -1,0 +1,64 @@
+@model DoAn.Models.tblThietBiPhong
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Sửa thiết bị phòng</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="post" asp-action="Edit">
+            <div class="form-row">
+                <input type="text" class="form-control" asp-for="TBP_ID" type="hidden" />
+                <div class="form-group col-md-6 mb-3">
+                    <label>Chọn thiết bị</label>
+                    <select class="form-control" asp-for="TB_ID" asp-items="ViewBag.tbList">
+                        <option value="">-- Chọn thiết bị --</option>
+                    </select>
+                    <span asp-validation-for="TB_ID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Chọn Phòng</label>
+                    <select class="form-control" asp-for="P_ID" asp-items="ViewBag.phongList">
+                        <option value="">-- Chọn phòng --</option>
+                    </select>
+                    <span asp-validation-for="P_ID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Số lượng giao</label>
+                    <input type=""number" class="form-control" asp-for="TBP_SoLuongGiao" placeholder="Nhập số lượng giao..." />
+                    <span asp-validation-for="TBP_SoLuongGiao" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ngày giao</label>
+                    <input type="date" class="form-control" asp-for="TBP_NgayGiao" placeholder="Nhập ngày giao..." />
+                    <span asp-validation-for="TBP_NgayGiao" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ngày thu hồi</label>
+                    <input type="date" class="form-control" asp-for="TBP_NgayThuHoi" placeholder="Nhập ngày thu hồi..." />
+                    <span asp-validation-for="TBP_NgayThuHoi" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ghi chú</label>
+                    <input type="text" class="form-control" asp-for="TBP_GhiChu" placeholder="Nhập ghi chú..." />
+                    <span asp-validation-for="TBP_GhiChu" class="alert-danger"></span>
+                </div>
+            </div>
+
+            <a asp-controller="ThietBiPhong" asp-action="Index" class="btn btn-lg btn-warning p-2">
+            <i class="bi bi-arrow-left-cricle"></i> Thoát
+            </a>
+
+            <button type="submit" class="btn b tn-lg btn-primary p-2">
+            <i class="bi bi-file-plus-fill"></i> Lưu
+            </button>
+            
+        </form>
+    </div>
+</main>

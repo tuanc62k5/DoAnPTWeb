@@ -18,6 +18,8 @@ namespace DoAn.Models
         public DbSet<tblSinhVien> SinhViens { get; set; }
         public DbSet<tblDichVu> DichVus { get; set; }
         public DbSet<tblDichVuPhong> DichVuPhongs { get; set; }
-        
+        public DbSet<tblThietBi> ThietBis { get; set; }
+        public DbSet<tblThietBiPhong> ThietBiPhongs { get; set; }
+        public DbSet<tblBaoTriThietBi> BaoTriThietBis { get; set; }
     }
 }

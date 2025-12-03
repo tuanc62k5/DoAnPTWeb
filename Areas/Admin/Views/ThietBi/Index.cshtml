@@ -1,0 +1,71 @@
+@using DoAn.Models;
+@model IList<tblThietBi>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách thiết bị</h2>
+
+        <p>
+            <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="ThietBi" asp-action="Create">
+            <i class="bi bi-file-earmark-text me-1"></i>Thêm mới thiết bị</a>
+            <section class="section dashboard">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body mt-4">
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1 text-center">#</th>
+                                            <th class="col-1 text-center">Tên thiết bị</th>
+                                            <th class="col-1 text-center">Mô tả</th>
+                                            <th class="col-1 text-center">Đơn vị tính</th>
+                                            <th class="col-1 text-center">Số lượng</th>
+                                            <th class="col-1 text-center">Tình trạng</th>
+                                            <th class="col-1 text-center">Vị trí kho</th>
+                                            <th class="col-1 text-center">Ngày nhập kho</th>
+                                            <th class="col-1 text-center">Ghi chú</th>
+                                            <th class="col-1 text-center">Chức năng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center" scope="row">@item.TB_ID</td>
+                                                <td class="text-left text-primary" scope="row"><a asp-area="Admin"
+                                                    asp-controller="ThietBi" asp-action="Details"
+                                                    asp-route-id="@item.TB_ID">@item.TB_TenThietBi</a></td>
+                                                <td class="text-center" scope="row">@item.TB_MoTa</td>
+                                                <td class="text-center" scope="row">@item.TB_DonViTinh</td>
+                                                <td class="text-center" scope="row">@item.TB_SoLuong</td>
+                                                <td class="text-center" scope="row">@item.TB_TinhTrang</td>
+                                                <td class="text-center" scope="row">@item.TB_ViTriKho</td>
+                                                <td class="text-center" scope="row">@item.TB_NgayNhapKho?.ToString("dd/MM/yyyy")</td>
+                                                <td class="text-left" scope="row">@item.TB_GhiChu</td>
+                                                <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="ThietBi" asp-action="Edit"
+                                                        asp-route-id="@item.TB_ID" class="btn btn-primary btn-sm"
+                                                        title="Sửa thiết bị"><i class="bi bi-pencil"></i></a>
+
+                                                    <a asp-area="Admin" asp-controller="ThietBi" asp-action="Delete"
+                                                        asp-route-id="@item.TB_ID" class="btn btn-danger btn-sm"
+                                                        title="Xóa thiết bị"><i class="bi bi-trash"></i></a>
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </p>
+    </div>
+</main>

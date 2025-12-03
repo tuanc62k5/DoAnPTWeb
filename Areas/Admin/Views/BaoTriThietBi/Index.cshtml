@@ -1,0 +1,66 @@
+@using DoAn.Models;
+@model IList<tblBaoTriThietBi>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách bảo trì thiết bị</h2>
+
+        <p>
+            <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="BaoTriThietBi" asp-action="Create">
+            <i class="bi bi-file-earmark-text me-1"></i>Thêm thiết bị bảo trì</a>
+            <section class="section dashboard">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body mt-4">
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1 text-center">#</th>
+                                            <th class="col-1 text-center">Thiết bị</th>
+                                            <th class="col-1 text-center">Số lượng</th>
+                                            <th class="col-2 text-center">Ngày bảo trì</th>
+                                            <th class="col-2 text-center">Nội dung bảo trì</th>
+                                            <th class="col-1 text-center">Chi phí</th>
+                                            <th class="col-1 text-center">Đơn vị thực hiện</th>
+                                            <th class="col-2 text-center">Ghi chú</th>
+                                            <th class="col-1 text-center">Chức năng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center" scope="row">@item.BTTB_ID</td>
+                                                <td class="text-center" scope="row">@item.ThietBi?.TB_TenThietBi</td>
+                                                <td class="text-center" scope="row">@item.BTTB_SoLuong</td>
+                                                <td class="text-center" scope="row">@item.BTTB_NgayBaoTri?.ToString("dd/MM/yyyy")</td>
+                                                <td class="text-center" scope="row">@item.BTTB_NoiDungBaoTri</td>
+                                                <td class="text-center" scope="row">@item.BTTB_ChiPhi</td>
+                                                <td class="text-center" scope="row">@item.BTTB_DonViThucHien</td>
+                                                <td class="text-center" scope="row">@item.BTTB_GhiChu</td>
+                                                
+                                                <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="BaoTriThietBi" asp-action="Edit"
+                                                        asp-route-id="@item.BTTB_ID" class="btn btn-primary btn-sm"
+                                                        title="Sửa thiết bị bảo trì"><i class="bi bi-pencil"></i></a>
+                                                    <a asp-area="Admin" asp-controller="BaoTriThietBi" asp-action="Delete"
+                                                        asp-route-id="@item.BTTB_ID" class="btn btn-danger btn-sm"
+                                                        title="Xóa thiết bị bảo trì"><i class="bi bi-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </p>
+    </div>
+</main>

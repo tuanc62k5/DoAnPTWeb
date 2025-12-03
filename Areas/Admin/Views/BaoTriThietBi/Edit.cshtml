@@ -1,0 +1,68 @@
+@model DoAn.Models.tblBaoTriThietBi
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Sửa thiết bị bảo trì</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="post" asp-action="Edit">
+            <div class="form-row">
+                <input type="text" class="form-control" asp-for="BTTB_ID" type="hidden" />
+                <div class="form-group col-md-6 mb-3">
+                    <label>Chọn thiết bị</label>
+                    <select class="form-control" asp-for="TB_ID" asp-items="ViewBag.tbList">
+                        <option value="">-- Chọn thiết bị --</option>
+                    </select>
+                    <span asp-validation-for="TB_ID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Số lượng</label>
+                    <input type=""number" class="form-control" asp-for="BTTB_SoLuong" placeholder="Nhập số lượng..." />
+                    <span asp-validation-for="BTTB_SoLuong" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ngày bảo trì</label>
+                    <input type="date" class="form-control" asp-for="BTTB_NgayBaoTri" placeholder="Nhập ngày bảo trì..." />
+                    <span asp-validation-for="BTTB_NgayBaoTri" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Nội dung bảo trì</label>
+                    <input type="text" class="form-control" asp-for="BTTB_NoiDungBaoTri" placeholder="Nhập nội dung bảo trì..." />
+                    <span asp-validation-for="BTTB_NoiDungBaoTri" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Chi phí</label>
+                    <input type=""number" class="form-control" asp-for="BTTB_ChiPhi" placeholder="Nhập chi phí..." />
+                    <span asp-validation-for="BTTB_ChiPhi" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Đơn vị thực hiện</label>
+                    <input type="text" class="form-control" asp-for="BTTB_DonViThucHien" placeholder="Nhập đơn vị thực hiện..." />
+                    <span asp-validation-for="BTTB_DonViThucHien" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ghi chú</label>
+                    <input type="text" class="form-control" asp-for="BTTB_GhiChu" placeholder="Nhập ghi chú..." />
+                    <span asp-validation-for="BTTB_GhiChu" class="alert-danger"></span>
+                </div>
+            </div>
+
+            <a asp-controller="BaoTriThietBi" asp-action="Index" class="btn btn-lg btn-warning p-2">
+            <i class="bi bi-arrow-left-cricle"></i> Thoát
+            </a>
+
+            <button type="submit" class="btn b tn-lg btn-primary p-2">
+            <i class="bi bi-file-plus-fill"></i> Lưu
+            </button>
+            
+        </form>
+    </div>
+</main>

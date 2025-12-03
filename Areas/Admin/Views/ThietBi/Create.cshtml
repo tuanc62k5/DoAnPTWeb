@@ -1,0 +1,74 @@
+@model DoAn.Models.tblThietBi
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Thêm thiết bị mới</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="Post" asp-action="Create">
+            <div class="form-row">
+
+                <div class="form-group col-md-6 mb-3">
+                    <label >Tên thiết bị</label>
+                    <input type="text" class="form-control" asp-for="TB_TenThietBi" placeholder="Nhập tên thiết bị..." />
+                    <span asp-validation-for="TB_TenThietBi" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label >Mô tả</label>
+                    <input type="text" class="form-control" asp-for="TB_MoTa" placeholder="Nhập mô tả..." />
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Đơn vị tính</label>
+                    <input type="text" class="form-control" asp-for="TB_DonViTinh" placeholder="Nhập đơn vị tính..." />
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Số lượng</label>
+                    <input type="number" class="form-control" asp-for="TB_SoLuong" placeholder="Nhập số lượng..." />
+                    <span asp-validation-for="TB_SoLuong" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Tình trạng</label>
+                    <select asp-for="TB_TinhTrang" class="form-select" id="TB_TinhTrang">
+                        <option value="Mới">Mới</option>
+                        <option value="Hỏng">Hỏng</option>
+                        <option value="Hỏng">Tồn kho</option>
+                        <option value="Đang sử dụng">Đang sử dụng</option>
+                        <option value="Đang bảo trì">Đang bảo trì</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Vị trí kho</label>
+                    <input type="text" class="form-control" asp-for="TB_ViTriKho" placeholder="Nhập vị trí kho..." />
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ngày nhập kho</label>
+                    <input type="date" class="form-control" asp-for="TB_NgayNhapKho" placeholder="Nhập ngày nhập kho..." />
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ghi chú</label>
+                    <input type="text" class="form-control" asp-for="TB_GhiChu" placeholder="Nhập ghi chú..." />
+                </div>
+
+            </div>
+
+            <a asp-controller="ThietBi" asp-action="Index" class="btn btn-lg btn-warning p-2">
+                <i class="bi bi-arrow-left-circle"></i>
+                Thoát
+            </a>
+
+            <button type="submit" class="btn btn-lg btn-primary p-2">
+                <i class="bi bi-file-plus-fill"></i> Lưu
+            </button>
+            
+        </form>
+    </div>
+</main>
