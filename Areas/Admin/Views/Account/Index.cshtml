@@ -40,7 +40,7 @@
                                                 <td class="text-center text-primary" scope="row"><a asp-area="Admin" 
                                                     asp-controller="Account" asp-action="Details" 
                                                     asp-route-id="@item.TK_ID">@item.TK_TenDangNhap</a></td>
-                                                <td class="text-center" scope="row">@item.TK_MatKhau</td>
+                                                <td class="text-center"><input type="password" value="@item.TK_MatKhau" readonly /></td>
                                                 <td class="text-center" scope="row">@item.TK_NgaySinh?.ToString("dd/MM/yyyy")</td>
                                                 <td class="text-center" scope="row">@item.TK_DiaChi</td>
                                                 <td class="text-center" scope="row">@item.TK_DienThoai</td>

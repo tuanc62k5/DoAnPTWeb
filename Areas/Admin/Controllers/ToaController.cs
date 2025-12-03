@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DoAn.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -49,7 +45,6 @@ namespace DoAn.Areas.Admin.Controllers
 
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Create(tblToa t)
         {
             if (ModelState.IsValid)
