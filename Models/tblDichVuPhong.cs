@@ -8,8 +8,12 @@ namespace DoAn.Models
     {
         [Key]
         public int DVP_ID { get; set; }
-        public int P_ID { get; set; }
-        public int DV_ID { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng chọn phòng!")]
+        public int? P_ID { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng chọn dịch vụ!")]
+        public int? DV_ID { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập số lượng!")]
         public int? DVP_SoLuong { get; set; }

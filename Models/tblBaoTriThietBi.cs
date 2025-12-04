@@ -8,10 +8,12 @@ namespace DoAn.Models
     {
         [Key]
         public int BTTB_ID { get; set; }
-        public int TB_ID { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng chọn thiết bị!")]
+        public int? TB_ID { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập số lượng!")]
-        public int BTTB_SoLuong { get; set; }
+        public int? BTTB_SoLuong { get; set; }
         public DateTime? BTTB_NgayBaoTri { get; set; }
         public string? BTTB_NoiDungBaoTri { get; set; }
         public decimal? BTTB_ChiPhi { get; set; }

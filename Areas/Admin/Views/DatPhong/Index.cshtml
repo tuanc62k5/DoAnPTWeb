@@ -1,0 +1,70 @@
+@using DoAn.Models;
+@model IList<tblDatPhong>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách đặt phòng</h2>
+
+        <p>
+            <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="DatPhong" asp-action="Create">
+            <i class="bi bi-file-earmark-text me-1"></i>Thêm đặt phòng mới</a>
+            <section class="section dashboard">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body mt-4">
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1 text-center">#</th>
+                                            <th class="col-1 text-center">Sinh viên</th>
+                                            <th class="col-1 text-center">Phòng</th>
+                                            <th class="col-1 text-center">Ngày đặt</th>
+                                            <th class="col-1 text-center">Trạng thái</th>
+                                            <th class="col-1 text-center">Ghi chú</th>
+                                            <th class="col-1 text-center">Người tạo</th>
+                                            <th class="col-1 text-center">Thời gian tạo</th>
+                                            <th class="col-1 text-center">Người sửa</th>
+                                            <th class="col-1 text-center">Thời gian sửa</th>
+                                            <th class="col-1 text-center">Chức năng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center" scope="row">@item.DP_ID</td>
+                                                <td class="text-center" scope="row">@item.SinhVien?.SV_HoTen</td>
+                                                <td class="text-center" scope="row">@item.Phong?.P_TenPhong</td>
+                                                <td class="text-center" scope="row">@item.DP_NgayDat?.ToString("dd/MM/yyyy")</td>
+                                                <td class="text-center" scope="row">@item.DP_TrangThai</td>
+                                                <td class="text-center" scope="row">@item.DP_GhiChu</td>
+                                                <td class="text-center" scope="row">@item.DP_NguoiTao</td>
+                                                <td class="text-center" scope="row">@item.DP_ThoiGianTao?.ToString("dd/MM/yyyy")</td>
+                                                <td class="text-center" scope="row">@item.DP_NguoiSua</td>
+                                                <td class="text-center" scope="row">@item.DP_ThoiGianSua?.ToString("dd/MM/yyyy")</td>
+                                                
+                                                <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="DatPhong" asp-action="Edit"
+                                                        asp-route-id="@item.DP_ID" class="btn btn-primary btn-sm"
+                                                        title="Sửa đặt phòng"><i class="bi bi-pencil"></i></a>
+                                                    <a asp-area="Admin" asp-controller="DatPhong" asp-action="Delete"
+                                                        asp-route-id="@item.DP_ID" class="btn btn-danger btn-sm"
+                                                        title="Xóa đặt phòng"><i class="bi bi-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </p>
+    </div>
+</main>
