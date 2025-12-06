@@ -22,10 +22,10 @@
                                         <tr>
                                             <th class="col-1 text-center">#</th>
                                             <th class="col-2 text-center">Sinh viên</th>
-                                            <th class="col-2 text-center">Phòng</th>
-                                            <th class="col-2 text-center">Ngày đặt</th>
-                                            <th class="col-2 text-center">Trạng thái</th>
-                                            <th class="col-3 text-center">Ghi chú</th>
+                                            <th class="col-1 text-center">Phòng</th>
+                                            <th class="col-1 text-center">Ngày đặt</th>
+                                            <th class="col-1 text-center">Trạng thái</th>
+                                            <th class="col-2 text-center">Ghi chú</th>
                                             <th class="col-2 text-center">Chức năng</th>
                                         </tr>
                                     </thead>
@@ -39,12 +39,11 @@
                                                 <td class="text-center" scope="row">@item.DP_NgayDat?.ToString("dd/MM/yyyy")</td>
                                                 <td class="text-center" scope="row">@item.DP_TrangThai</td>
                                                 <td class="text-center" scope="row">@item.DP_GhiChu</td>
-                                                <td class="text-center" scope="row">@item.DP_NguoiTao</td>
-                                                <td class="text-center" scope="row">@item.DP_ThoiGianTao?.ToString("dd/MM/yyyy")</td>
-                                                <td class="text-center" scope="row">@item.DP_NguoiSua</td>
-                                                <td class="text-center" scope="row">@item.DP_ThoiGianSua?.ToString("dd/MM/yyyy")</td>
                                                 
                                                 <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="DatPhong" asp-action="Details"
+                                                        asp-route-id="@item.DP_ID" class="btn btn-success btn-sm"
+                                                        title="Xem chi tiết đặt phòng"><i class="ri-eye-line"></i></a>
                                                     <a asp-area="Admin" asp-controller="DatPhong" asp-action="Edit"
                                                         asp-route-id="@item.DP_ID" class="btn btn-primary btn-sm"
                                                         title="Sửa đặt phòng"><i class="bi bi-pencil"></i></a>

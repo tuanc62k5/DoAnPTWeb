@@ -1,0 +1,68 @@
+@model DoAn.Models.tblDatPhong
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Chi tiết đặt phòng</h2>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Mã đặt phòng</label>
+            <input class="form-control" value="@Model.DP_ID" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Sinh viên</label>
+            <input class="form-control" value="@Model.SinhVien?.SV_HoTen" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Phòng</label>
+            <input class="form-control" value="@Model.Phong?.P_TenPhong" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Ngày đặt</label>
+            <input class="form-control" value="@Model.DP_NgayDat?.ToString("dd/MM/yyyy")" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Trạng thái</label>
+            <input class="form-control" value="@Model.DP_TrangThai" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Ghi chú</label>
+            <textarea class="form-control" rows="3" readonly>@Model.DP_GhiChu</textarea>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Người tạo</label>
+            <input class="form-control" value="@Model.DP_NguoiTao" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Thời gian tạo</label>
+            <input class="form-control" value="@Model.DP_ThoiGianTao?.ToString("dd/MM/yyyy HH:mm:ss")" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Người sửa</label>
+            <input class="form-control" value="@Model.DP_NguoiSua" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Thời gian sửa</label>
+            <input class="form-control" value="@Model.DP_ThoiGianSua?.ToString("dd/MM/yyyy HH:mm:ss")" readonly />
+        </div>
+
+    </div>
+
+    <a asp-area="Admin" asp-controller="DatPhong" asp-action="Index"
+       class="btn btn-secondary mt-3">Quay lại</a>
+</main>

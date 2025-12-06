@@ -97,5 +97,17 @@ namespace DoAn.Areas.Admin.Controllers
 
             return View(dp);
         }
+        public IActionResult Details(int? id)
+        {
+            if (id == null || id == 0)
+                return NotFound();
+
+            var dp = _context.DatPhongs.Include(x => x.SinhVien).Include(x => x.Phong).FirstOrDefault(x => x.DP_ID == id);
+
+            if (dp == null)
+                return NotFound();
+
+            return View(dp);
+        }
     }
 }
