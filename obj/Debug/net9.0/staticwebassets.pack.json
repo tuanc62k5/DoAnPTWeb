@@ -3365,8 +3365,16 @@
       "PackagePath": "staticwebassets\\assets\\css\\main.css"
     },
     {
+      "Id": "D:\\DoAnPTWeb\\DoAn\\wwwroot\\assets\\img\\11zon_cropped.png",
+      "PackagePath": "staticwebassets\\assets\\img\\11zon_cropped.png"
+    },
+    {
       "Id": "D:\\DoAnPTWeb\\DoAn\\wwwroot\\assets\\img\\apple-touch-icon.png",
       "PackagePath": "staticwebassets\\assets\\img\\apple-touch-icon.png"
+    },
+    {
+      "Id": "D:\\DoAnPTWeb\\DoAn\\wwwroot\\assets\\img\\base64-1747742574203990672920.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\base64-1747742574203990672920.webp"
     },
     {
       "Id": "D:\\DoAnPTWeb\\DoAn\\wwwroot\\assets\\img\\favicon.png",
@@ -3659,6 +3667,10 @@
     {
       "Id": "D:\\DoAnPTWeb\\DoAn\\wwwroot\\assets\\img\\restaurant\\starter-5.webp",
       "PackagePath": "staticwebassets\\assets\\img\\restaurant\\starter-5.webp"
+    },
+    {
+      "Id": "D:\\DoAnPTWeb\\DoAn\\wwwroot\\assets\\img\\tải xuống.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\tải xuống.jpg"
     },
     {
       "Id": "D:\\DoAnPTWeb\\DoAn\\wwwroot\\assets\\js\\main.js",

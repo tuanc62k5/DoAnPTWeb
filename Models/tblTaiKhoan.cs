@@ -24,6 +24,7 @@ namespace DoAn.Models
         public string? TK_DiaChi { get; set; }
         public string? TK_DienThoai { get; set; }
         public string? TK_Email { get; set; }
+        public int? TK_QuyenHan { get; set; }
 
     }
 }

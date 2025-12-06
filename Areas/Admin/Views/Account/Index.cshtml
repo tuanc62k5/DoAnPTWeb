@@ -28,6 +28,7 @@
                                             <th class="col-2 text-center">Địa chỉ</th>
                                             <th class="col-2 text-center">Điện thoại</th>
                                             <th class="col-2 text-center">Email</th>
+                                            <th class="col-2 text-center">Loại tk</th>
                                             <th class="col-2 text-center">Chức năng</th>
                                         </tr>
                                     </thead>
@@ -45,6 +46,7 @@
                                                 <td class="text-center" scope="row">@item.TK_DiaChi</td>
                                                 <td class="text-center" scope="row">@item.TK_DienThoai</td>
                                                 <td class="text-left" scope="row">@item.TK_Email</td>
+                                                <td class="text-center" scope="row">@(item.TK_QuyenHan == 0 ? "Admin" : "Sinh viên")
                                                 <td class="text-center" scope="row">
                                                     <a asp-area="Admin" asp-controller="Account" asp-action="Edit"
                                                         asp-route-id="@item.TK_ID" class="btn btn-primary btn-sm"

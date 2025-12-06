@@ -13,13 +13,31 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    [ResponseCache(NoStore = true, Duration = 0)]
     public IActionResult Index()
     {
+        // Check if user is logged in
+        if (HttpContext.Session.GetInt32("TK_ID") == null)
+        {
+            return RedirectToAction("Index", "DangNhap");
+        }
+        HttpContext.Response.Headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0";
+        HttpContext.Response.Headers["Pragma"] = "no-cache";
+        HttpContext.Response.Headers["Expires"] = "0";
         return View();
     }
 
+    [ResponseCache(NoStore = true, Duration = 0)]
     public IActionResult Privacy()
     {
+        // Check if user is logged in
+        if (HttpContext.Session.GetInt32("TK_ID") == null)
+        {
+            return RedirectToAction("Index", "DangNhap");
+        }
+        HttpContext.Response.Headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0";
+        HttpContext.Response.Headers["Pragma"] = "no-cache";
+        HttpContext.Response.Headers["Expires"] = "0";
         return View();
     }
 
