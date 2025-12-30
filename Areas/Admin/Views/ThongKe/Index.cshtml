@@ -1,0 +1,213 @@
+@using System.Linq
+@model DoAn.Areas.Admin.Controllers.ThongKeController.ThongKeKTX
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle mb-4">
+        <h2 class="fw-bold text-primary">Thống Kê Ký Túc Xá</h2>
+        <p class="text-muted">Tổng quan hệ thống quản lý ký túc xá</p>
+    </div>
+
+    <section class="section dashboard">
+
+        <!-- Card wrapper like DatPhong but styled -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto shadow-sm p-3">
+                    <div class="card-body">
+
+                        <!-- Cards row -->
+                        <div class="row gx-3 gy-3">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="p-3 rounded-3 bg-white h-100">
+                                    <div class="text-muted small">Tổng Phòng</div>
+                                    <div class="h4 fw-bold">@Model.TongPhong</div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="p-3 rounded-3 bg-white h-100">
+                                    <div class="text-muted small">Tổng Sinh Viên</div>
+                                    <div class="h4 fw-bold">@Model.TongSinhVien</div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="p-3 rounded-3 bg-white h-100">
+                                    <div class="text-muted small">Tổng Nam</div>
+                                    <div class="h4 fw-bold">@Model.SoNam</div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="p-3 rounded-3 bg-white h-100">
+                                    <div class="text-muted small">Tổng Nữ</div>
+                                    <div class="h4 fw-bold">@Model.SoNu</div>
+                                </div>
+                            </div>
+                        </div> <!-- /cards row -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dịch vụ (table) -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="card-title mb-0">Dịch Vụ</h5>
+                            <a class="btn btn-outline-secondary btn-sm" href="@Url.Action("Index","ThongKe", new { area = "Admin" })">Làm mới</a>
+                        </div>
+
+                        <p class="text-muted mb-2"><strong>Tổng bản ghi dịch vụ:</strong> @Model.TongBanGhiDichVu</p>
+
+                        <div class="table-responsive" style="max-height:420px; overflow:auto;">
+                            <table class="table table-borderless mb-0">
+                                <thead>
+                                    <tr style="border-bottom:1px solid #eee;">
+                                        <th style="width:5%;">#</th>
+                                        <th>Dịch Vụ</th>
+                                        <th class="text-end" style="width:15%;">Số Lượng</th>
+                                        <th class="text-end" style="width:20%;">Thành Tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        var i = 1;
+                                        int totalSL = Model.ServiceDetails?.Sum(s => s.TongSoLuong) ?? 0;
+                                        decimal totalMoney = Model.ServiceDetails?.Sum(s => s.TongThanhTien) ?? 0m;
+                                    }
+                                    @if (Model.ServiceDetails != null && Model.ServiceDetails.Any())
+                                    {
+                                        foreach (var s in Model.ServiceDetails)
+                                        {
+                                            <tr>
+                                                <td>@i</td>
+                                                <td>@s.TenDichVu</td>
+                                                <td class="text-end">@s.TongSoLuong</td>
+                                                <td class="text-end">@String.Format("{0:N0}", s.TongThanhTien) đ</td>
+                                            </tr>
+                                            i++;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="4" class="text-center text-muted">Không có dữ liệu dịch vụ</td>
+                                        </tr>
+                                    }
+
+                                    <tr class="fw-semibold bg-light">
+                                        <td></td>
+                                        <td class="text-end">Tổng cộng</td>
+                                        <td class="text-end">@totalSL</td>
+                                        <td class="text-end">@String.Format("{0:N0}", totalMoney) đ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thiết bị -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Thống Kê Thiết Bị</h5>
+
+                        <!-- summary cards -->
+                        <div class="row gx-3 gy-3 mb-3">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="p-3 rounded-3 bg-white h-100">
+                                    <div class="text-muted small">Tổng Loại Thiết Bị</div>
+                                    <div class="h4 fw-bold">@Model.TongLoaiThietBi</div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="p-3 rounded-3 bg-white h-100">
+                                    <div class="text-muted small">Tổng Thiết Bị Đã Giao</div>
+                                    <div class="h4 fw-bold">@Model.TongThietBiDaGiao</div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="p-3 rounded-3 bg-white h-100">
+                                    <div class="text-muted small">Thiết Bị Được Bảo Trì</div>
+                                    <div class="h4 fw-bold">@Model.TongThietBiDuocBaoTri</div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="p-3 rounded-3 bg-white h-100">
+                                    <div class="text-muted small">Tổng Chi Phí Bảo Trì</div>
+                                    <div class="h4 fw-bold">@String.Format("{0:N0}", Model.TongChiPhiBaoTri) đ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- equipment table -->
+                        <div class="mt-2">
+                            <h6 class="mb-3">Chi Tiết Số Lượng Thiết Bị</h6>
+                            <div class="table-responsive" style="max-height:420px; overflow:auto;">
+                                <table class="table table-borderless mb-0">
+                                    <thead>
+                                        <tr style="border-bottom:1px solid #eee;">
+                                            <th>Thiết Bị</th>
+                                            <th class="text-end" style="width:20%;">Số Lượng Giao</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            int sumEquip = Model.EquipmentDetails?.Sum(e => e.TongSoLuongGiao) ?? 0;
+                                        }
+                                        @if (Model.EquipmentDetails != null && Model.EquipmentDetails.Any())
+                                        {
+                                            foreach (var e in Model.EquipmentDetails)
+                                            {
+                                                <tr>
+                                                    <td>@e.TenThietBi</td>
+                                                    <td class="text-end">@e.TongSoLuongGiao</td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="2" class="text-center text-muted">Không có dữ liệu thiết bị</td>
+                                            </tr>
+                                        }
+
+                                        <tr class="fw-semibold bg-light">
+                                            <td class="text-end">Tổng cộng</td>
+                                            <td class="text-end">@sumEquip</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<style>
+    .recent-sales .card-body { padding: 1.25rem; }
+    .rounded-3 { border-radius: 12px; }
+    .shadow-sm { box-shadow: 0 6px 18px rgba(44,62,80,0.04); }
+    .table td, .table th { vertical-align: middle; border-top: none; }
+</style>

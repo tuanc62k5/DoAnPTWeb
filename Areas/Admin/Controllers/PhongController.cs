@@ -45,7 +45,6 @@ namespace DoAn.Areas.Admin.Controllers
 
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Create(tblPhong p)
         {
             if (ModelState.IsValid)

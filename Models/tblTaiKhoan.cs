@@ -18,12 +18,8 @@ namespace DoAn.Models
 
         [Required(ErrorMessage = "Vui lòng nhập mật khẩu!")]
         public string? TK_MatKhau { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? TK_NgaySinh { get; set; }
-        public string? TK_DiaChi { get; set; }
-        public string? TK_DienThoai { get; set; }
         public string? TK_Email { get; set; }
+        public string? TK_TrangThai { get; set; }
         public int? TK_QuyenHan { get; set; }
 
     }
