@@ -9,15 +9,16 @@ namespace DoAn.Models
         [Key]
         public int T_ID { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng nhập tên tòa.")]
+        [Required(ErrorMessage = "Vui lòng nhập tên tòa!")]
         public string? T_TenToa { get; set; }
         public int? T_SoTang { get; set; }
-        public int? T_SLPhong { get; set; }
+        public string? T_TrangThai { get; set; }
+        public DateTime? T_NgayTao { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng chọn cơ sở.")]
-        public int? CS_ID { get; set; }
+        [Required(ErrorMessage = "Vui lòng chọn cơ sở!")]
+        public int CS_ID { get; set; }
 
         [ForeignKey("CS_ID")]
-        public virtual tblCoSo? CoSo { get; set; }
+        public virtual tblCoSo CoSo { get; set; } = null!;
     }
 }

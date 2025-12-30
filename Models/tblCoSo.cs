@@ -11,11 +11,9 @@ namespace DoAn.Models
 
         [Required(ErrorMessage = "Vui lòng nhập tên cơ sở!")]
         public string? CS_TenCoSo { get; set; }
-
         public string? CS_DiaChi { get; set; }
-
-        [Required(ErrorMessage = "Vui lòng nhập số tòa!")]
-        [Range(1, int.MaxValue, ErrorMessage = "Số tòa phải lớn hơn 0.")]
-        public int? CS_SoToaKTX { get; set; }
+        public string CS_TrangThai { get; set; } = "Hoạt động";
+        public DateTime? CS_NgayTao { get; set; }
+        
     }
 }

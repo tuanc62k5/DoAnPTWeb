@@ -15,6 +15,11 @@ namespace DoAn.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var csList = _context.CoSos.OrderBy(cs => cs.CS_ID).ToList();
+
+            var SoToaKTX = _context.Toas.Where(t => t.T_TrangThai == "Hoạt động").GroupBy(t => t.CS_ID).ToDictionary(g => g.Key, g => g.Count());
+
+            ViewBag.SoToaKTX = SoToaKTX;
+
             return View(csList);
         }
         public IActionResult Delete(int? id)
