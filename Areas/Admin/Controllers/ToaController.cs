@@ -16,6 +16,11 @@ namespace DoAn.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var toaList = _context.Toas.Include(t => t.CoSo).OrderBy(t => t.T_ID).ToList();
+
+            var SoPhong = _context.Phongs.GroupBy(p => p.T_ID).ToDictionary(g => g.Key, g => g.Count());
+
+            ViewBag.SoPhong = SoPhong;
+
             return View(toaList);
         }
         public IActionResult Delete(int? id)
@@ -49,6 +54,7 @@ namespace DoAn.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                t.T_NgayTao = DateTime.Now;
                 _context.Toas.Add(t);
                 _context.SaveChanges();
                 return RedirectToAction("Index");

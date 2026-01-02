@@ -31,18 +31,18 @@
                                     <tbody>
                                         @foreach(var item in Model)
                                         {
-                                                int soToaKTX = 0;
-                                                    if (ViewBag.SoToaKTX != null && ViewBag.SoToaKTX.ContainsKey(item.CS_ID))
-                                                    {
-                                                        soToaKTX = ViewBag.SoToaKTX[item.CS_ID];
-                                                    }
-                                                <tr>
+                                            int SoToaKTX = 0;
+                                                if (ViewBag.SoToaKTX != null && ViewBag.SoToaKTX.ContainsKey(item.CS_ID))
+                                                {
+                                                    SoToaKTX = ViewBag.SoToaKTX[item.CS_ID];
+                                                }
+                                            <tr>
                                                 <td class="text-center" scope="row">@item.CS_ID</td>
                                                 <td class="text-center text-primary" scope="row"><a asp-area="Admin"
                                                     asp-controller="CoSo" asp-action="Details"
                                                     asp-route-id="@item.CS_ID">@item.CS_TenCoSo</a></td>
                                                 <td class="text-center" scope="row">@item.CS_DiaChi</td>
-                                                <td class="text-center" scope="row">@soToaKTX</td>
+                                                <td class="text-center" scope="row">@SoToaKTX</td>
                                                 <td class="text-center" scope="row">@item.CS_TrangThai</td>
                                                 <td class="text-center" scope="row">
                                                     <a asp-area="Admin" asp-controller="CoSo" asp-action="Edit"
