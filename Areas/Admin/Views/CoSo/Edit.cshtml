@@ -9,10 +9,10 @@
     <div class="container shadow p-5">
         <form method="post" asp-action="Edit">
             <div class="form-row">
-                <input type="text" class="form-control" asp-for="CS_ID" type="hidden" />
+                <input type="hidden" class="form-control" asp-for="CS_ID" />
                 <div class="form-group col-md-6 mb-3">
                     <label>Tên cơ sở</label>
-                    <input type=""text" class="form-control" asp-for="CS_TenCoSo" placeholder="Nhập tên cơ sở..." />
+                    <input type="text" class="form-control" asp-for="CS_TenCoSo" placeholder="Nhập tên cơ sở..." />
                     <span asp-validation-for="CS_TenCoSo" class="alert-danger"></span>
                 </div>
 
@@ -26,7 +26,6 @@
                     <select asp-for="CS_TrangThai" class="form-select" id="CS_TrangThai">
                         <option value="Hoạt động">Hoạt động</option>
                         <option value="Ngừng hoạt động">Ngừng hoạt động</option>
-                        <option value="Đã xóa">Đã xóa</option>
                     </select>
                 </div>
             </div>

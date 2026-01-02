@@ -62,6 +62,8 @@ namespace DoAn.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                cs.CS_NgayTao = DateTime.Now;
+
                 _context.CoSos.Add(cs);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
@@ -94,13 +96,17 @@ namespace DoAn.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Edit(tblCoSo cs)
         {
-            if (ModelState.IsValid)
-            {
-                _context.CoSos.Update(cs);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(cs);
+            if (!ModelState.IsValid)
+                return View(cs);
+
+            var db = _context.CoSos.Find(cs.CS_ID);
+            if (db == null)
+                return NotFound();
+            db.CS_TenCoSo = cs.CS_TenCoSo;
+            db.CS_DiaChi = cs.CS_DiaChi;
+            db.CS_TrangThai = cs.CS_TrangThai;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
