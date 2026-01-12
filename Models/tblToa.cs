@@ -20,6 +20,6 @@ namespace DoAn.Models
         public int CS_ID { get; set; }
 
         [ForeignKey("CS_ID")]
-        public virtual tblCoSo CoSo { get; set; } = null!;
+        public virtual tblCoSo? CoSo { get; set; }
     }
 }
