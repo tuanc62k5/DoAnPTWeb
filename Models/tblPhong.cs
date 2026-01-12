@@ -16,11 +16,12 @@ namespace DoAn.Models
         public string? P_TrangThai { get; set; }
         public decimal? P_GiaTien { get; set; }
         public string? P_MoTa { get; set; }
+        public DateTime? P_NgayTao { get; set; }
 
         [Required(ErrorMessage = "Vui lòng chọn tòa KTX!")]
-        public int T_ID { get; set; }
+        public int? T_ID { get; set; }
 
         [ForeignKey("T_ID")]
-        public virtual tblToa Toa { get; set; } = null!;
+        public virtual tblToa? Toa { get; set; } = null!;
     }
 }

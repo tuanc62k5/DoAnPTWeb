@@ -13,7 +13,7 @@
                 <div class="form-group col-md-6 mb-3">
                     <label>Chọn cơ sở</label>
                     <select class="form-control" asp-for="CS_ID" asp-items="ViewBag.csList">
-                        <option value="">-- Chọn cơ sở cho tòa KTX --</option>
+                        <option value="0">-- Chọn cơ sở cho tòa KTX --</option>
                     </select>
                     <span asp-validation-for="CS_ID" class="text-danger"></span>
                 </div>
@@ -29,7 +29,13 @@
                     <input type="number" class="form-control" asp-for="T_SoTang" placeholder="Nhập số tầng..." />
                 </div>
 
-                
+                <div class="form-group col-md-6 mb-3">
+                    <label>Trạng thái</label>
+                    <select asp-for="T_TrangThai" class="form-select" id="T_TrangThai">
+                        <option value="Hoạt động">Hoạt động</option>
+                        <option value="Ngừng hoạt động">Ngừng hoạt động</option>
+                    </select>
+                </div>
             </div>
 
             <a asp-controller="Toa" asp-action="Index" class="btn btn-lg btn-warning p-2">
