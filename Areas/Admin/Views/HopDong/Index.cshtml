@@ -1,0 +1,67 @@
+@using DoAn.Models;
+@model IList<tblHopDong>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách hợp đồng</h2>
+
+        <p>
+            <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="HopDong" asp-action="Create">
+            <i class="bi bi-file-earmark-text me-1"></i>Thêm hợp đồng mới</a>
+            <section class="section dashboard">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body mt-4">
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1 text-center">#</th>
+                                            <th class="col-1 text-center">Mã hợp đồng</th>
+                                            <th class="col-1 text-center">Sinh viên</th>
+                                            <th class="col-1 text-center">Phòng</th>
+                                            <th class="col-1 text-center">Giá phòng</th>
+                                            <th class="col-1 text-center">Trạng thái</th>
+                                            <th class="col-1 text-center">Ghi chú</th>
+                                            <th class="col-1 text-center">Chức năng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center" scope="row">@item.HD_ID</td>
+                                                <td class="text-center" scope="row">@item.HD_MaHopDong</td>
+                                                <td class="text-center" scope="row">@item.SinhVien?.SV_HoTen</td>
+                                                <td class="text-center" scope="row">@item.Phong?.P_TenPhong</td>
+                                                <td class="text-center" scope="row">@item.HD_GiaPhong</td>
+                                                <td class="text-center" scope="row">@item.HD_TrangThai</td>
+                                                <td class="text-center" scope="row">@item.HD_GhiChu</td>
+
+                                                <td class="text-center" scope="row">
+                                                    <a asp-area="Admin" asp-controller="HopDong" asp-action="Details"
+                                                        asp-route-id="@item.HD_ID" class="btn btn-success btn-sm"
+                                                        title="Xem chi tiết hợp đồng"><i class="ri-eye-line"></i></a>
+                                                    <a asp-area="Admin" asp-controller="HopDong" asp-action="Edit"
+                                                        asp-route-id="@item.HD_ID" class="btn btn-primary btn-sm"
+                                                        title="Sửa hợp đồng"><i class="bi bi-pencil"></i></a>
+                                                    <a asp-area="Admin" asp-controller="HopDong" asp-action="Delete"
+                                                        asp-route-id="@item.HD_ID" class="btn btn-danger btn-sm"
+                                                        title="Xóa hợp đồng"><i class="bi bi-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </p>
+    </div>
+</main>

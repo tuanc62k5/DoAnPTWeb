@@ -22,5 +22,6 @@ namespace DoAn.Models
         public DbSet<tblThietBiPhong> ThietBiPhongs { get; set; }
         public DbSet<tblBaoTriThietBi> BaoTriThietBis { get; set; }
         public DbSet<tblDatPhong> DatPhongs { get; set; }
+        public DbSet<tblHopDong> HopDongs { get; set; }
     }
 }
