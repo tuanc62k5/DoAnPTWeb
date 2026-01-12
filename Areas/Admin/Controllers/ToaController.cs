@@ -17,7 +17,7 @@ namespace DoAn.Areas.Admin.Controllers
         {
             var toaList = _context.Toas.Include(t => t.CoSo).OrderBy(t => t.T_ID).ToList();
 
-            var SoPhong = _context.Phongs.GroupBy(p => p.T_ID).ToDictionary(g => g.Key, g => g.Count());
+            var SoPhong = _context.Phongs.Where(p => p.T_ID != null).GroupBy(p => p.T_ID!.Value).ToDictionary(g => g.Key, g => g.Count());
 
             ViewBag.SoPhong = SoPhong;
 

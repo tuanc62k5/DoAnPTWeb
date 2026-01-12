@@ -1,0 +1,68 @@
+@model DoAn.Models.tblHopDong
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Chi tiết hợp đồng</h2>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">HD_ID</label>
+            <input class="form-control" value="@Model.HD_ID" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Mã hợp đồng</label>
+            <input class="form-control" value="@Model.HD_MaHopDong" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Sinh viên</label>
+            <input class="form-control" value="@Model.SinhVien?.SV_HoTen" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Phòng</label>
+            <input class="form-control" value="@Model.Phong?.P_TenPhong" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Ngày bắt đầu</label>
+            <input class="form-control" value="@(Model.HD_NgayBatDau.HasValue? Model.HD_NgayBatDau.Value.ToString("dd/MM/yyyy"): "")" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Ngày kết thúc</label>
+            <input class="form-control" value="@(Model.HD_NgayKetThuc.HasValue? Model.HD_NgayKetThuc.Value.ToString("dd/MM/yyyy"): "")" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Giá phòng</label>
+            <input class="form-control" value="@Model.HD_GiaPhong" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Trạng thái</label>
+            <input class="form-control" value="@Model.HD_TrangThai" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Ngày tạo</label>
+            <input class="form-control" value="@Model.HD_NgayTao.ToString("dd/MM/yyyy")" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Ghi chú</label>
+            <input class="form-control" value="@Model.HD_GhiChu" readonly />
+        </div>
+
+    </div>
+
+    <a asp-area="Admin" asp-controller="HopDong" asp-action="Index"
+       class="btn btn-secondary mt-3">Quay lại</a>
+</main>

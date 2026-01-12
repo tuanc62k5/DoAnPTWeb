@@ -47,16 +47,6 @@ namespace DoAn.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(tblPhong p)
         {
-            if (!ModelState.IsValid)
-    {
-        foreach (var entry in ModelState)
-        {
-            foreach (var error in entry.Value.Errors)
-            {
-                Console.WriteLine($"FIELD: {entry.Key} - ERROR: {error.ErrorMessage}");
-            }
-        }
-    }
             if (ModelState.IsValid)
             {
                 _context.Phongs.Add(p);

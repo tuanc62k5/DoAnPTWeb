@@ -1,0 +1,84 @@
+@model DoAn.Models.tblHopDong
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Sửa hợp đồng</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="post" asp-action="Edit">
+            <div class="form-row">
+                <input type="text" class="form-control" asp-for="HD_ID" type="hidden" />
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Mã hợp đồng</label>
+                    <input type="text" class="form-control" asp-for="HD_MaHopDong" placeholder="Nhập mã hợp đồng..." />
+                    <span asp-validation-for="HD_MaHopDong" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Chọn sinh viên</label>
+                    <select class="form-control" asp-for="SV_ID" asp-items="ViewBag.svList">
+                        <option value="">-- Chọn sinh viên --</option>
+                    </select>
+                    <span asp-validation-for="SV_ID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Chọn Phòng</label>
+                    <select class="form-control" asp-for="P_ID" asp-items="ViewBag.phongList">
+                        <option value="">-- Chọn phòng --</option>
+                    </select>
+                    <span asp-validation-for="P_ID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ngày bắt đầu</label>
+                    <input type="date" class="form-control" asp-for="HD_NgayBatDau" placeholder="Nhập ngày bắt đầu..." />
+                    <span asp-validation-for="HD_NgayBatDau" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ngày kết thúc</label>
+                    <input type="date" class="form-control" asp-for="HD_NgayKetThuc" placeholder="Nhập ngày kết thúc..." />
+                    <span asp-validation-for="HD_NgayKetThuc" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Giá phòng</label>
+                    <input type="number" class="form-control" asp-for="HD_GiaPhong" placeholder="Nhập giá phòng..." />
+                    <span asp-validation-for="HD_GiaPhong" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Trạng thái</label>
+                    <input type="text" class="form-control" asp-for="HD_TrangThai" placeholder="Nhập trạng thái..." />
+                    <span asp-validation-for="HD_TrangThai" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ngày tạo</label>
+                    <input type="date" class="form-control" asp-for="HD_NgayTao" placeholder="Nhập ngày tạo..." />
+                    <span asp-validation-for="HD_NgayTao" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ghi chú</label>
+                    <input type="text" class="form-control" asp-for="HD_GhiChu" placeholder="Nhập ghi chú..." />
+                    <span asp-validation-for="HD_GhiChu" class="alert-danger"></span>
+                </div>
+
+            </div>
+
+            <a asp-controller="HopDong" asp-action="Index" class="btn btn-lg btn-warning p-2">
+            <i class="bi bi-arrow-left-cricle"></i> Thoát
+            </a>
+
+            <button type="submit" class="btn btn-lg btn-primary p-2">
+            <i class="bi bi-file-plus-fill"></i> Lưu
+            </button>
+            
+        </form>
+    </div>
+</main>
