@@ -49,6 +49,7 @@ namespace DoAn.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                p.P_NgayTao = DateTime.Now;
                 _context.Phongs.Add(p);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
@@ -105,6 +106,20 @@ namespace DoAn.Areas.Admin.Controllers
             });
 
             ViewBag.phongList = phongList;
+
+            return View(p);
+        }
+
+        public IActionResult Details(int? id)
+        {
+            if (id == null || id == 0)
+            return NotFound();
+
+            var p = _context.Phongs
+                        .Include(x => x.Toa)
+                        .FirstOrDefault(x => x.P_ID == id);
+            if (p == null)
+                return NotFound();
 
             return View(p);
         }

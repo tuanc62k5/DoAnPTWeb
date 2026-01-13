@@ -1,0 +1,58 @@
+@model DoAn.Models.tblPhong
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Chi tiết phòng</h2>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">P_ID</label>
+            <input class="form-control" value="@Model.P_ID" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Tòa</label>
+            <input class="form-control" value="@Model.Toa?.T_TenToa" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Tên phòng</label>
+            <input class="form-control" value="@Model.P_TenPhong" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Loại phòng</label>
+            <input class="form-control" value="@Model.P_LoaiPhong" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Số lượng người</label>
+            <input class="form-control" value="@Model.P_SLNguoi" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Trạng thái</label>
+            <input class="form-control" value="@Model.P_TrangThai" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Giá tiền</label>
+            <input class="form-control" value="@Model.P_GiaTien" readonly />
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Mô tả</label>
+            <input class="form-control" value="@Model.P_MoTa" readonly />
+        </div>
+
+    </div>
+
+    <a asp-area="Admin" asp-controller="Phong" asp-action="Index"
+       class="btn btn-secondary mt-3">Quay lại</a>
+</main>
